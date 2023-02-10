@@ -1,0 +1,28 @@
+// ==UserScript==
+// @name         MAX - Universal Code Generator 1.0
+// @namespace    http://tampermonkey.net/
+// @version      1.0
+// @description  A filter that displays a button next to the "demod" label
+// @author       Your Name
+// @match        *://*/*
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    // Find the demod label on the page
+    var demodLabel = document.querySelector("[data-demod='true']");
+
+    // If the demod label is found, add the button next to it
+    if (demodLabel) {
+        var button = document.createElement("button");
+        button.innerText = "Universal Code Generator 1.0";
+        demodLabel.parentNode.insertBefore(button, demodLabel.nextSibling);
+
+        // Add event listener for button click
+        button.addEventListener("click", function() {
+            // Your code for generating code goes here
+        });
+    }
+})();
